@@ -6,8 +6,8 @@ pipeline {
     }
 
     environment {
-        RENDER_URL   = 'https://gallery.onrender.com'
-        SLACK_CHANNEL = '#all-rc'
+        RENDER_URL   = 'https://moringa-assisgnment.onrender.com/'
+        SLACK_CHANNEL = '#gallery-assignment'
         EMAIL        = 'daddymarto01@gmail.com'
     }
 
