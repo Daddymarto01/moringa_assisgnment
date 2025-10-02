@@ -17,9 +17,13 @@ let image = require('./routes/image');
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
-.then(() => console.log(`MongoDB connected to ${env} database`))
-.catch(err => console.error('MongoDB connection error:', err));
+});
+mongoose.connection.on('connected', () => {
+  console.log('Mongoose connected to MongoDB Atlas');
+});
+mongoose.connection.on('error', err => {
+  console.error('Mongoose connection error:', err);
+}); 
 // mongoose.connect(mongoURI, {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
