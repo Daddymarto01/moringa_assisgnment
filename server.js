@@ -14,12 +14,18 @@ let index = require('./routes/index');
 let image = require('./routes/image');
 
 // Connect to MongoDB Atlas
-mongoose.connect(mongoURI, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => console.log(`MongoDB connected to ${env} database`))
 .catch(err => console.error('MongoDB connection error:', err));
+// mongoose.connect(mongoURI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+// .then(() => console.log(`MongoDB connected to ${env} database`))
+// .catch(err => console.error('MongoDB connection error:', err));
 
 // Initialize the app
 const app = express();
